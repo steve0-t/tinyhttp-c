@@ -1,4 +1,5 @@
 #include "../include/main.h"
+#include "server_setup.h"
 #include <stdio.h>
 #include <sys/socket.h>
 
@@ -11,16 +12,18 @@ int main() {
     fprintf(stderr, "server: failed to setup server\n");
     exit(1);
   }
+
   if (setup_sig_handler() == -1) {
     fprintf(stderr, "server: failed to setup signal handler\n");
     exit(1);
   }
-  printf("server: waiting for connections...\n");
 
   int client_fd;
   struct sockaddr_storage client_addr;
   socklen_t client_len;
 
+  fprintf(stdout, "Setup completed. Listening on: %s\n", IP_ADDR);
+  fprintf(stdout, "Server: waiting for connections...\n");
   while (1) {
     client_len = sizeof(client_addr);
     client_fd = accept(server_fd, (struct sockaddr *)&client_addr, &client_len);

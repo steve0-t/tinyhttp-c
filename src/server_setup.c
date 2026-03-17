@@ -9,7 +9,7 @@ int setup_server() {
   hints.ai_socktype = SOCK_STREAM;
   hints.ai_flags = AI_PASSIVE;
 
-  if ((getaddrinfo(NULL, PORT, &hints, &servinfo)) != 0) {
+  if ((getaddrinfo(IP_ADDR, PORT, &hints, &servinfo)) != 0) {
     fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(errno));
     return -1;
   }

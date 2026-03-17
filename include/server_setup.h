@@ -12,6 +12,7 @@
 
 #define BACKLOG 20
 #define PORT "8080"
+#define IP_ADDR "127.0.0.1"
 #define DOMAIN "localhost"
 
 int setup_server();
