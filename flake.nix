@@ -19,6 +19,8 @@
         ninja
         clang-tools
         clang
+        glibc
+        gdb
       ];
     };
   };
